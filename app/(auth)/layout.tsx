@@ -1,6 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs"
 import { Inter } from "next/font/google"
 import "../globals.css"
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata={
     title:'Create Next App',
@@ -13,7 +14,8 @@ export default function RootLayout({children}:{children:React.ReactNode}){
     <ClerkProvider>
         <html lang="en" className={`${inter.className}  bg-dark-1`}>
             <body
-             >{children}</body>
+             >{children}
+             <Analytics /></body>
         </html>
 
     </ClerkProvider>
