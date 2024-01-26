@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-// import { fetchCommunityPosts } from "@/lib/actions/community.actions";
+import { fetchCommunityPosts } from "@/lib/actions/community.actions";
 import { fetchUserPosts } from "@/lib/actions/user.actions";
 
 import ThreadCard from "../cards/ThreadCard";
@@ -42,10 +42,9 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
   let result: Result;
 
   if (accountType === "Community") {
-    // result = await fetchCommunityPosts(accountId);
+    result = await fetchCommunityPosts(accountId);
   } else {
     result = await fetchUserPosts(accountId);
-    // console.log("result",result.threads[0].children);
   }
 
   if (!result) {
@@ -62,7 +61,7 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
           parentId={thread.parentId}
           content={thread.text}
           author={
-            0
+            accountType === "User"
               ? { name: result.name, image: result.image, id: result.id }
               : {
                   name: thread.author.name,
