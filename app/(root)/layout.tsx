@@ -1,4 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs"
+import { Analytics } from '@vercel/analytics/react';
 import { Inter } from "next/font/google"
 import "../globals.css"
 import Topbar from "@/components/shared/Topbar"
@@ -23,13 +24,14 @@ export default function RootLayout({children}:{children:React.ReactNode}){
                 <LeftSidebar/>
                 <section className="main-container">
                   <div className="w-full max-w-4xl">
-                  {children}</div>
+                  {children}
+                 </div>
 
                 </section>
                 <RightSidebar/>
               </main>
               <Bottombar/>
-
+              <Analytics />
              </body>
         </html>
 
