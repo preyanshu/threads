@@ -71,23 +71,26 @@ function ThreadCard({
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
-                <Image
+                {/* <Image
                   src='/assets/heart-gray.svg'
                   alt='heart'
                   width={24}
                   height={24}
                   className='cursor-pointer object-contain'
-                />
+                /> */}
                 <Link href={`/thread/${id}`}>
-                  <Image
+                <div className="flex">
+                <Image
                     src='/assets/reply.svg'
                     alt='heart'
                     width={24}
                     height={24}
-                    className='cursor-pointer object-contain'
+                    className='cursor-pointer object-contain me-1'
                   />
+                  <span className=" mt-1 text-subtle-medium text-gray-1">comment</span>
+                </div>
                 </Link>
-                <Image
+                {/* <Image
                   src='/assets/repost.svg'
                   alt='heart'
                   width={24}
@@ -100,7 +103,7 @@ function ThreadCard({
                   width={24}
                   height={24}
                   className='cursor-pointer object-contain'
-                />
+                /> */}
               </div>
 
               {isComment && comments.length > 0 && (
@@ -162,6 +165,19 @@ function ThreadCard({
             className='ml-1 rounded-full object-cover'
           />
         </Link>
+      )}
+      {!isComment && !community && (
+        <span
+          
+          className='mt-5 flex items-center'
+        >
+          <p className='text-subtle-medium text-gray-1'>
+            {formatDateString(createdAt)}
+            
+          </p>
+
+        
+        </span>
       )}
     </article>
   );

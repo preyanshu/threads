@@ -21,7 +21,7 @@ function Bottombar() {
             <Link
               href={link.route}
               key={link.label}
-              className={`bottombar_link ${isActive && "bg-primary-500"}`}
+              className={`bottombar_link ${isActive && "bg-white text-gray"}`}
             >
               <Image
                 src={link.imgURL}
@@ -29,6 +29,7 @@ function Bottombar() {
                 width={16}
                 height={16}
                 className='object-contain'
+                style={{ filter: "contrast(0)" }}
               />
 
               <p className='text-subtle-medium text-light-1 max-sm:hidden'>

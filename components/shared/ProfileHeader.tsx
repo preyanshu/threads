@@ -48,6 +48,7 @@ function ProfileHeader({
                 alt='logout'
                 width={16}
                 height={16}
+                style={{ filter: "contrast(0)" }}
               />
 
               <p className='text-light-2 max-sm:hidden'>Edit</p>

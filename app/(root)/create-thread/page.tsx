@@ -20,7 +20,7 @@ const page = async() => {
   return (
     <>
     <div className="head-text">
-        Create Thread
+       Post
     </div>
     <PostThread  userId={userInfo._id}/>
     </>

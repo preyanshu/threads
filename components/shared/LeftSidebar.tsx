@@ -23,29 +23,48 @@ const LeftSidebar = () => {
 
           if (link.route === "/profile") link.route = `${link.route}/${userId}`;
 
-          return (
-            <Link
-              href={link.route}
-              key={link.label}
-              className={`leftsidebar_link ${isActive && "bg-primary-500 "}`}
-            >
-              <Image
-                src={link.imgURL}
-                alt={link.label}
-                width={24}
-                height={24}
-              />
+          return (<>
+           {!isActive && <> <Link
+            href={link.route}
+            key={link.label}
+            className={`leftsidebar_link `}
+          >
+            <Image
+              src={link.imgURL}
+              alt={link.label}
+              width={24}
+              height={24}
+              // className={`${!isActive && "filter contrast-100"}`}
+              style={{ filter: "contrast(0)" }}
+            />
 
-              <p className='text-light-1 max-lg:hidden'>{link.label}</p>
-            </Link>
-          );
+            <p className={`max-lg:hidden ${!isActive && "text-light-1"}`}>{link.label}</p>
+          </Link></> }
+           {isActive && <> <Link
+            href={link.route}
+            key={link.label}
+            className={`leftsidebar_link `}
+            style={{ backgroundColor: "white",color: "black"}}
+          >
+            <Image
+              src={link.imgURL}
+              alt={link.label}
+              width={24}
+              height={24}
+              // className={`${!isActive && "filter contrast-100"}`}
+              style={{ filter: "contrast(0)" }}
+            />
+
+            <p className={`max-lg:hidden ${!isActive && "text-light-1"}`}>{link.label}</p>
+          </Link></> }
+          </>);
         })}
       </div>
 
       <div className='mt-10 px-6'>
         <SignedIn>
           <SignOutButton signOutCallback={() => router.push("/sign-in")}>
-            <div className='flex cursor-pointer gap-4 p-4'>
+            <div className='flex cursor-pointer gap-4 p-4 leftsidebar_link  '>
               <Image
                 src='/assets/logout.svg'
                 alt='logout'
