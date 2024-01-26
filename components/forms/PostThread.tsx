@@ -48,6 +48,7 @@ function PostThread({ userId }: Props) {
 
     router.push("/");
   };
+  console.log("organization",organization);
 
   return (
     <Form {...form}>
