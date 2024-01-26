@@ -1,7 +1,0 @@
-{
-  "/(root)/profile/[id]/page": "app/(root)/profile/[id]/page.js",
-  "/(root)/search/page": "app/(root)/search/page.js",
-  "/(root)/activity/page": "app/(root)/activity/page.js",
-  "/(root)/create-thread/page": "app/(root)/create-thread/page.js",
-  "/(root)/communities/page": "app/(root)/communities/page.js"
-}
